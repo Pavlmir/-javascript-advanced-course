@@ -1,0 +1,19 @@
+.goods-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.goods-item {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 7px;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5%;
+}
