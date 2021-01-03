@@ -1,0 +1,53 @@
+.goods-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.goods-item {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 7px;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5%;
+}
+
+.cart-count {
+  margin: 10px;
+}
+
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  background-color: rgb(0, 0, 0); /* Затемнение фона */
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачное затемнение */
+  z-index: 1; /* Фон на нижнем слое */
+  overflow: auto; /* При необходимости, то появиться прокрутка */
+}
+
+.modal-content {
+  animation-name: animate;
+
+  animation-duration: 0.5s;
+}
+
+@keyframes animate {
+  from {
+    top: -320px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.close {
+  font-size: 30px;
+  font-weight: bold;
+}
