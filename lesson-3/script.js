@@ -93,10 +93,10 @@ class BasketList {
         return result;
     }
 
-    addGoods(item) {
-        let cartItem = this.searchGoods(item.title);
+    addGoods(goodItem) {
+        let cartItem = this.searchGoods(goodItem.title);
         if (cartItem === "") {
-            cartItem = new BasketItem(item, 1);
+            cartItem = new BasketItem(goodItem, 1);
             this.goods.push(cartItem);
             let cart_count = document.querySelector('.cart-count');
             if (cart_count) {
@@ -110,7 +110,7 @@ class BasketList {
             }
         }
         else {
-            cartItem.count = cartItem.count + 1;
+            alert("Товар уже добален в корзину.")
         }
     }
 
@@ -195,8 +195,30 @@ cart_button.addEventListener('click', (e) => {
                 <span class="close">×</span>
             </div>
             <div class="modal-body">
+                <div class="modal-all">
+                    <div class="modal-tab">
+                        <div class="modal-tab-head">
+                            <div class="modal-content-sub-name">Наименование товара</div>
+                            <div class="modal-content-sub-price">Цена</div>
+                            <div class="modal-content-sub"></div>
+                            <div class="modal-content-sub-count">Количество</div>
+                            <div class="modal-content-sub"></div>
+                        </div>
+                        <div class="modal-tab-row">
+                            <div class="modal-content-sub-name">vsdv</div>
+                            <div class="modal-content-sub-price">2</div>
+                            <button class="modal-content-sub btn-buy-continue btn btn-warning">-</button>
+                            <input class="modal-content-sub-count" type="text" size="10" value="0" />
+                            <button class="modal-content-sub btn-buy-continue btn btn-warning">+</button>
+                        </div>
+                    </div>
+                </div>
                 ${cart_list.getListGoods()}
             </div>
+            <div>
+                <button class="btn-buy-continue btn btn-warning">Продолжить покупку</button>
+            </div>
+
         </div>`;
     let span = document.querySelector(".close");
     span.addEventListener('click', (e) => {

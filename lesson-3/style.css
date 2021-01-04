@@ -31,9 +31,46 @@
 }
 
 .modal-content {
+  display: flex;
   animation-name: animate;
-
   animation-duration: 0.5s;
+}
+
+.modal-tab-head {
+  display: flex;
+}
+
+.modal-content-sub-name {
+  width: 100%;
+  border: 1px solid;
+}
+
+.modal-content-sub-price {
+  width: 100px;
+  border: 1px solid;
+}
+
+.modal-content-sub-count {
+  width: 100px;
+  border: 1px solid;
+}
+
+.modal-content-sub {
+  width: 100px;
+  border: 1px solid;
+}
+
+.modal-tab-row {
+  display: flex;
+}
+
+.modal-tab {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-all {
+  display: flex;
 }
 
 @keyframes animate {
