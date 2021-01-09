@@ -163,7 +163,7 @@ class BasketItem {
     constructor(objGood, count) {
         this.title = objGood.title;
         this.price = objGood.price;
-        this.count = 0;
+        this.count = 1;
     }
 
     render() {
@@ -188,6 +188,20 @@ let modal = document.querySelector('.modal');
 let cart_button = document.querySelector('.cart-button');
 cart_button.addEventListener('click', (e) => {
     modal.style.display = "block";
+    let listName = "";
+    let listPrice = "";
+    let listCount = "";
+    let listBtnMinus = "";
+    let listBtnPlus = "";
+    let listBtnDel = "";
+    cart_list.goods.forEach((cartGood, i) => {
+        listName = listName + "\n" + `<div>${cartGood.title}</div>`;
+        listPrice = listPrice + "\n" + `<div>${cartGood.price}</div>`;
+        listCount = listCount + "\n" + `<div><input id="input_${i}" class="good-count" type="text" size="10" value="${cartGood.count}" /></div>`;
+        listBtnMinus = listBtnMinus + "\n" + `<div id="min_${i}" class="modal-button"><button class="change-btn">-</button></div>`;
+        listBtnPlus = listBtnPlus + "\n" + `<div id="max_${i}" class="modal-button"><button class="change-btn">+</button></div>`;
+        listBtnDel = listBtnDel + "\n" + `<div id="del_${i}" class="modal-button"><button class="change-btn">x</button></div>`;
+    });
     document.querySelector('.modal').innerHTML =
         `<div class="modal-content">
             <div class="modal-header">
@@ -195,27 +209,34 @@ cart_button.addEventListener('click', (e) => {
                 <span class="close">×</span>
             </div>
             <div class="modal-body">
-                <div class="modal-all">
-                    <div class="modal-tab">
-                        <div class="modal-tab-head">
-                            <div class="modal-content-sub-name">Наименование товара</div>
-                            <div class="modal-content-sub-price">Цена</div>
-                            <div class="modal-content-sub"></div>
-                            <div class="modal-content-sub-count">Количество</div>
-                            <div class="modal-content-sub"></div>
-                        </div>
-                        <div class="modal-tab-row">
-                            <div class="modal-content-sub-name">vsdv</div>
-                            <div class="modal-content-sub-price">2</div>
-                            <button class="modal-content-sub btn-buy-continue btn btn-warning">-</button>
-                            <input class="modal-content-sub-count" type="text" size="10" value="0" />
-                            <button class="modal-content-sub btn-buy-continue btn btn-warning">+</button>
-                        </div>
+                <div class="modal-tab">
+                    <div>
+                        <div>Наименование товара</div>
+                        ${listName}
+                    </div>
+                    <div>
+                        <div>Цена</div>
+                        ${listPrice}
+                    </div>
+                    <div class="column-min">
+                        <div>Уменьшить</div>
+                        ${listBtnMinus}
+                    </div>
+                    <div>
+                        <div>Количество</div>
+                        ${listCount}
+                    </div>
+                    <div>
+                        <div>Увеличить</div>
+                        ${listBtnPlus}
+                    </div>
+                    <div>
+                        <div>Удалить</div>
+                        ${listBtnDel}
                     </div>
                 </div>
-                ${cart_list.getListGoods()}
             </div>
-            <div>
+            <div class="btn-continue">
                 <button class="btn-buy-continue btn btn-warning">Продолжить покупку</button>
             </div>
 
@@ -223,6 +244,20 @@ cart_button.addEventListener('click', (e) => {
     let span = document.querySelector(".close");
     span.addEventListener('click', (e) => {
         modal.style.display = "none";
+    });
+    // Находим все элементы good-count
+    let goodsСount = document.querySelectorAll('.good-count');
+    goodsСount.forEach((element, i) => {
+        let itemPlus = document.querySelector('#max_' + i);
+        itemPlus.addEventListener('click', (e) => {
+            element.value = Number(element.value) + 1;
+        });
+        let itemMin = document.querySelector('#min_' + i);
+        itemMin.addEventListener('click', (e) => {
+            if (Number(element.value) > 1) {
+                element.value = Number(element.value) - 1;
+            }
+        });
     });
 });
 
