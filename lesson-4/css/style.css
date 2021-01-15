@@ -1,0 +1,26 @@
+form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 760px;
+}
+
+.valid-err {
+  border: 3px solid red;
+}
+
+.valid-ok {
+  border: 3px solid green;
+}
+
+.error {
+  font-weight: 900;
+  color: brown;
+}
+.hide {
+  display: none;
+}
+
+button {
+  margin-top: 10px;
+}
