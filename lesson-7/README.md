@@ -1,2 +1,2 @@
-# -javascript-advanced-course
+# javascript-advanced-course
 GeekBrains - Продвинутый курс Javascript
