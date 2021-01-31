@@ -1,0 +1,22 @@
+[
+  {
+    "id_product": 124,
+    "product_name": "Пончики",
+    "price": 100
+  },
+  {
+    "id_product": 457,
+    "product_name": "Кренделя",
+    "price": 80
+  },
+  {
+    "id_product": 123,
+    "product_name": "Булочки",
+    "price": 45
+  },
+  {
+    "id_product": 456,
+    "product_name": "Круассаны",
+    "price": 120
+  }
+]
