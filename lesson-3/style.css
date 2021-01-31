@@ -1,0 +1,117 @@
+.goods-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.goods-item {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 7px;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5%;
+}
+
+.cart-count {
+  margin: 10px;
+}
+
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  background-color: rgb(0, 0, 0); /* Затемнение фона */
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачное затемнение */
+  z-index: 1; /* Фон на нижнем слое */
+  overflow: auto; /* При необходимости, то появиться прокрутка */
+}
+
+.modal-button {
+  display: flex;
+  justify-content: center;
+}
+
+.column-min {
+  width: auto;
+}
+
+.change-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  outline: none;
+}
+
+.change-btn:focus {
+  outline: none;
+}
+
+.btn-continue {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 10px 10px 10px;
+}
+
+.modal-content {
+  display: flex;
+  animation-name: animate;
+  animation-duration: 0.5s;
+}
+
+.modal-tab {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+@keyframes animate {
+  from {
+    top: -320px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.close {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* .modal-tab-head {
+  display: flex;
+}
+
+.modal-content-sub-name {
+  width: 100%;
+  border: 1px solid;
+}
+
+.modal-content-sub-price {
+  width: 100px;
+  border: 1px solid;
+}
+
+.modal-content-sub-count {
+  width: 100px;
+  border: 1px solid;
+}
+
+.modal-tab-row {
+  display: flex;
+}
+
+.modal-all {
+  display: flex;
+} */
